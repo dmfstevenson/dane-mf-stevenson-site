@@ -275,6 +275,7 @@
     <li><a href="#focus">Expertise</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#thinking">Thinking</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -691,6 +692,20 @@
   </div>
 </section>
 
+<!-- LINKEDIN POSTS -->
+<section id="thinking" style="background:var(--white);padding:5.5rem 2.5rem;">
+  <div class="container">
+    <p class="section-eyebrow">LinkedIn</p>
+    <h2>Latest Thinking</h2>
+    <div id="posts-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-bottom:2.5rem;">
+      <p style="color:var(--muted);">Loading posts...</p>
+    </div>
+    <div style="text-align:center;">
+      <a href="https://www.linkedin.com/in/danestevenson/" target="_blank" class="btn btn-primary">Follow on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -718,5 +733,30 @@
   &copy; 2026 Dane Stevenson &nbsp;·&nbsp; Enterprise Architect &nbsp;·&nbsp; Greater Newcastle, Australia
 </footer>
 
+<script>
+fetch('posts.json')
+  .then(r => r.json())
+  .then(posts => {
+    const grid = document.getElementById('posts-grid');
+    if (!posts.length) {
+      grid.innerHTML = '<p style="color:var(--muted)">No posts yet.</p>';
+      return;
+    }
+    grid.innerHTML = posts.map(p => `
+      <a href="${p.url}" target="_blank" style="text-decoration:none;">
+        <div style="background:var(--light);border:1px solid var(--border);border-radius:12px;padding:1.5rem;height:100%;transition:box-shadow .2s;display:flex;flex-direction:column;gap:.8rem;"
+             onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,.08)'"
+             onmouseout="this.style.boxShadow='none'">
+          <p style="font-size:.75rem;color:var(--muted);">${p.date}</p>
+          <p style="font-size:.9rem;color:var(--text);line-height:1.65;flex:1;">${p.text}</p>
+          <p style="font-size:.8rem;color:var(--accent);font-weight:600;">Read on LinkedIn</p>
+        </div>
+      </a>
+    `).join('');
+  })
+  .catch(() => {
+    document.getElementById('posts-grid').innerHTML = '<p style="color:var(--muted)">Posts coming soon.</p>';
+  });
+</script>
 </body>
 </html>
