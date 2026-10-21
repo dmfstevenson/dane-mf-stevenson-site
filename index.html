@@ -696,7 +696,7 @@
   <div class="container">
     <p class="section-eyebrow">Strategic Capabilities</p>
     <h2>What I Bring</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:1.5rem;">
 
       <div style="background:linear-gradient(135deg,#0a1628,#1a1a2e);border-radius:14px;padding:2rem;border:1px solid rgba(0,188,212,.35);box-shadow:0 0 40px rgba(0,188,212,.07);">
         <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;">
@@ -746,6 +746,21 @@
         </div>
       </div>
 
+      <div style="background:linear-gradient(135deg,#0f1f2e,#0e4a5a);border-radius:14px;padding:2rem;border:1px solid rgba(0,188,212,.2);">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.1rem;">
+          <div style="width:42px;height:42px;border-radius:10px;background:rgba(0,188,212,.15);border:1px solid rgba(0,188,212,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00bcd4" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:#fff;">Security by Design</h3>
+        </div>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;">Security holds when it is designed in, not added before go-live. At Globe I designed a vendor onboarding platform that replaces a manual, email-driven compliance process: suppliers submit their security and privacy evidence through a public form, each submission is risk-assessed automatically, and only the items that need judgement reach the compliance team. Because it faces the public internet, the intake runs in its own isolated environment, linked to the compliance system by a single one-way message queue, with no standing servers, least-privilege access for each function, secrets kept out of code, and data deleted once each case closes. It went through several rounds of independent security audit before any live traffic.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem;">
+          <span class="focus-tag">Zero Trust</span>
+          <span class="focus-tag">Least Privilege</span>
+          <span class="focus-tag">Isolation by Design</span>
+          <span class="focus-tag">Third-Party Risk</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
